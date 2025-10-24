@@ -1,1 +1,1 @@
-brick = ConnectBrick('BMO');
+brick = ConnectBrick('PoopyBrick');
