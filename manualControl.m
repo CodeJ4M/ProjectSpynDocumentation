@@ -22,15 +22,15 @@ while 1
             brick.MoveMotor('D', 10);
             
         case 0
-            %disp('No Key Press');
+            %disp('No Input');
             brick.StopMotor('ADC', 'Coast');
             
         case 'w'
-            %disp('Crane Up');
+            %disp('Claw Up');
             brick.MoveMotor('C', -10);
             
         case 's'
-            %disp('Crane Down');
+            %disp('Claw Down');
             brick.MoveMotor('C', 10);
             
         case 'q'
@@ -39,3 +39,4 @@ while 1
 end
 
 CloseKeyboard();
+
