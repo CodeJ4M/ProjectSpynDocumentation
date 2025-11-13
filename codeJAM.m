@@ -8,10 +8,10 @@ right motor: D
 %}
 
 %         Motor speed settings 
-motorlf = -85;    % Left motor forward (A)
-motorrf = -82;    % Right motor forward (D)
-motorlb = 30;     % Left motor backward
-motorrb = 28;     % Right motor backward
+motorlf = 85;    % Left motor forward (A)
+motorrf = 85;    % Right motor forward (D)
+motorlb = -30;     % Left motor backward
+motorrb = -30;     % Right motor backward
 threshold = 49;   % Distance threshold (cm)
 
 % ===== Initialize sensors =====
@@ -49,7 +49,7 @@ while true
             disp('Moving forward briefly before turn...');
             brick.MoveMotor('A', motorlf);
             brick.MoveMotor('D', motorrf);
-            pause(1.0);
+            pause(0.40);
 
             % Stop and turn RIGHT 90 degrees
             brick.StopMotor('AD', 'Brake');
@@ -107,7 +107,7 @@ while true
         % ===== Double-bump logic =====
         if (current_time - last_bump_time) <= bump_timeout && last_bump_time > 0
             disp('Double bump detected — disabling ultrasonic again!');
-            ultrasonicEnabled = false;
+            ultrasonicEnabled = true;
         else
             disp('Single bump detected — ultrasonic re-enabled.');
             ultrasonicEnabled = true;
